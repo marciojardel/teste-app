@@ -1,0 +1,17 @@
+version: '3'
+services:
+  pock-fron:
+    image: portalcomercial
+    build: .
+    ports:  
+      - 4200:4200
+    volumes:
+      - ./:/usr/app/
+    expose: 
+      - 4200
+    depends_on: 
+      - pock-back
+  pock-back:
+    image: pocportalcomercial.azurecr.io/portalcomercialbackend1:352
+    ports:
+      - 8001:8080
